@@ -31,7 +31,7 @@ jobs:
           USERNAME: ${{ github.actor }}
 
       - name: Docker Build
-        run: docker build -t ghcr.io/IlyaGulya/danger-kotlin:$VERSION --build-arg="KOTLINC_VERSION=$KOTLINC_VERSION" --build-arg="DANGER_KOTLIN_VERSION=$DANGER_KOTLIN_VERSION" --build-arg="DANGER_JS_VERSION=$DANGER_JS_VERSION" .
+        run: docker build -t ghcr.io/ilyagulya/danger-kotlin:$VERSION --build-arg="KOTLINC_VERSION=$KOTLINC_VERSION" --build-arg="DANGER_KOTLIN_VERSION=$DANGER_KOTLIN_VERSION" --build-arg="DANGER_JS_VERSION=$DANGER_JS_VERSION" .
         env:
           VERSION: ${{ github.event.inputs.docker-version }}
           KOTLINC_VERSION: ${{ github.event.inputs.kotlin-version }}
@@ -39,6 +39,6 @@ jobs:
           DANGER_JS_VERSION: ${{ github.event.inputs.danger-js-version }}
 
       - name: Deploy
-        run: docker push ghcr.io/IlyaGulya/danger-kotlin:$VERSION
+        run: docker push ghcr.io/ilyagulya/danger-kotlin:$VERSION
         env:
           VERSION: ${{ github.event.inputs.docker-version }}
